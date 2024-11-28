@@ -182,9 +182,6 @@
     <None Include="Resources\OOP HOMESCREEN.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\umakLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logoumaksmall.png" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +192,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LikhayaVenueReservation.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\profilebutton.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

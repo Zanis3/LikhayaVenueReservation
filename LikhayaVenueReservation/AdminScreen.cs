@@ -16,5 +16,40 @@ namespace LikhayaVenueReservation
         {
             InitializeComponent();
         }
+        private void btnProfileButton_Click(object sender, EventArgs e)
+        {
+            pnlProfileButtons.Visible = !pnlProfileButtons.Visible;
+
+            if(pnlProfileButtons.Visible == true)
+            {
+                btnProfileButton.BackColor = Color.White;
+                pnlProfileButtons.BringToFront();
+            }
+            else
+            {
+                btnProfileButton.BackColor = Color.Transparent;
+            }
+        }
+
+        private void lblLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult prompt = MessageBox.Show("Are you sure you want to log-out?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if(prompt == DialogResult.Yes)
+            {
+                Session.sessionUserID = 0;
+                Session.sessionUsername = null;
+                Session.sessionUserType = null;
+
+                FormLogin login = new FormLogin();
+                login.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnAddAccounts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
