@@ -16,6 +16,13 @@ namespace LikhayaVenueReservation
         {
             InitializeComponent();
         }
+
+        private void addUserControls(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Clear();
+            pnlContainer.Controls.Add(userControl);
+        }
         private void btnProfileButton_Click(object sender, EventArgs e)
         {
             pnlProfileButtons.Visible = !pnlProfileButtons.Visible;
@@ -29,6 +36,11 @@ namespace LikhayaVenueReservation
             {
                 btnProfileButton.BackColor = Color.Transparent;
             }
+        }
+
+        private void lblProfile_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
@@ -49,7 +61,8 @@ namespace LikhayaVenueReservation
 
         private void btnAddAccounts_Click(object sender, EventArgs e)
         {
-
+            UCAdminAddStaffAdmin addAcc = new UCAdminAddStaffAdmin();
+            addUserControls(addAcc);
         }
     }
 }

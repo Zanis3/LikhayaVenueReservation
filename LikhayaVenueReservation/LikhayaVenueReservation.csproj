@@ -96,6 +96,24 @@
     <Compile Include="StaffScreen.Designer.cs">
       <DependentUpon>StaffScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminAddAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminAddAdmin.Designer.cs">
+      <DependentUpon>UCAdminAddAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminAddStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminAddStaff.Designer.cs">
+      <DependentUpon>UCAdminAddStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminAddStaffAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminAddStaffAdmin.Designer.cs">
+      <DependentUpon>UCAdminAddStaffAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserFormPendingVerificationPending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +159,15 @@
     </Compile>
     <EmbeddedResource Include="StaffScreen.resx">
       <DependentUpon>StaffScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminAddAdmin.resx">
+      <DependentUpon>UCAdminAddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminAddStaff.resx">
+      <DependentUpon>UCAdminAddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminAddStaffAdmin.resx">
+      <DependentUpon>UCAdminAddStaffAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationPending.resx">
       <DependentUpon>UCUserFormPendingVerificationPending.cs</DependentUpon>

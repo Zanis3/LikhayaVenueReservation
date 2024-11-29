@@ -102,7 +102,7 @@ namespace LikhayaVenueReservation
                 counter += 1;
             }
 
-            //CHECKS IF A LOT OF TEXTBOXES ARE MORE THAN 100 CHARACTERS LONG
+            //CHECKS IF A LOT OF TEXTBOXES ARE LESS THAN 2,3 OR MORE THAN 100 CHARACTERS LONG
             if (!string.IsNullOrEmpty(txtLastName.Text) || !string.IsNullOrEmpty(txtFirstName.Text) || !string.IsNullOrEmpty(txtUserDesignation.Text) || !string.IsNullOrEmpty(txtUserGroup.Text))
             {
                 bool error = false;

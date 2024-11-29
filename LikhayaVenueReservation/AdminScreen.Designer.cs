@@ -176,6 +176,7 @@
             this.lblProfile.Size = new System.Drawing.Size(78, 30);
             this.lblProfile.TabIndex = 1;
             this.lblProfile.Text = "Profile";
+            this.lblProfile.Click += new System.EventHandler(this.lblProfile_Click);
             // 
             // lblLogout
             // 
