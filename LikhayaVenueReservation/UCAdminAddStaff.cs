@@ -213,8 +213,15 @@ namespace LikhayaVenueReservation
 
                         executeRegTwo.ExecuteNonQuery();
 
-                        Extra.log($"{accountType} '{username}' registered an account.");
-                        Extra.showSucessMessage("Account registered! Please login to access your account.");
+                        if (accountID > 0)
+                        {
+                            Extra.log($"{accountType} '{username}' registered an account.");
+                            Extra.showSucessMessage("Account registered! Please login to access your account.");
+                        }
+                        else
+                        {
+                            Extra.showWarningMessage("Something seems to have gone wrong when registering your account. Please try again.");
+                        }
                     }
                     catch (Exception ex)
                     {

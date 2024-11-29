@@ -37,14 +37,10 @@
             this.btnViewAccount = new System.Windows.Forms.Button();
             this.btnAddAccounts = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.pnlProfileButtons = new System.Windows.Forms.Panel();
-            this.lblProfile = new System.Windows.Forms.Label();
-            this.lblLogout = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgUMAKLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
-            this.pnlContainer.SuspendLayout();
-            this.pnlProfileButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -94,6 +90,7 @@
             // pnlNavigation
             // 
             this.pnlNavigation.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pnlNavigation.Controls.Add(this.btnLogout);
             this.pnlNavigation.Controls.Add(this.btnViewLogs);
             this.pnlNavigation.Controls.Add(this.btnViewAccount);
             this.pnlNavigation.Controls.Add(this.btnAddAccounts);
@@ -115,6 +112,7 @@
             this.btnViewLogs.TabIndex = 2;
             this.btnViewLogs.Text = "View Logs";
             this.btnViewLogs.UseVisualStyleBackColor = false;
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
             // 
             // btnViewAccount
             // 
@@ -129,6 +127,7 @@
             this.btnViewAccount.TabIndex = 1;
             this.btnViewAccount.Text = "View Accounts";
             this.btnViewAccount.UseVisualStyleBackColor = false;
+            this.btnViewAccount.Click += new System.EventHandler(this.btnViewAccount_Click);
             // 
             // btnAddAccounts
             // 
@@ -147,50 +146,25 @@
             // 
             // pnlContainer
             // 
-            this.pnlContainer.Controls.Add(this.pnlProfileButtons);
             this.pnlContainer.Location = new System.Drawing.Point(350, 75);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(920, 610);
             this.pnlContainer.TabIndex = 2;
             // 
-            // pnlProfileButtons
+            // btnLogout
             // 
-            this.pnlProfileButtons.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.pnlProfileButtons.Controls.Add(this.lblProfile);
-            this.pnlProfileButtons.Controls.Add(this.lblLogout);
-            this.pnlProfileButtons.Location = new System.Drawing.Point(745, 0);
-            this.pnlProfileButtons.Name = "pnlProfileButtons";
-            this.pnlProfileButtons.Size = new System.Drawing.Size(120, 90);
-            this.pnlProfileButtons.TabIndex = 0;
-            this.pnlProfileButtons.Visible = false;
-            // 
-            // lblProfile
-            // 
-            this.lblProfile.AutoSize = true;
-            this.lblProfile.BackColor = System.Drawing.Color.Transparent;
-            this.lblProfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfile.ForeColor = System.Drawing.Color.Black;
-            this.lblProfile.Location = new System.Drawing.Point(38, 20);
-            this.lblProfile.Name = "lblProfile";
-            this.lblProfile.Size = new System.Drawing.Size(78, 30);
-            this.lblProfile.TabIndex = 1;
-            this.lblProfile.Text = "Profile";
-            this.lblProfile.Click += new System.EventHandler(this.lblProfile_Click);
-            // 
-            // lblLogout
-            // 
-            this.lblLogout.AutoSize = true;
-            this.lblLogout.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogout.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblLogout.Location = new System.Drawing.Point(25, 57);
-            this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(92, 30);
-            this.lblLogout.TabIndex = 0;
-            this.lblLogout.Text = "Log-out";
-            this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
+            this.btnLogout.BackColor = System.Drawing.Color.IndianRed;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(93, 522);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(150, 45);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "LOG-OUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.button1_Click);
             // 
             // AdminScreen
             // 
@@ -209,9 +183,6 @@
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgUMAKLogo)).EndInit();
             this.pnlNavigation.ResumeLayout(false);
-            this.pnlContainer.ResumeLayout(false);
-            this.pnlProfileButtons.ResumeLayout(false);
-            this.pnlProfileButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -227,8 +198,6 @@
         private System.Windows.Forms.Button btnAddAccounts;
         private System.Windows.Forms.Button btnViewLogs;
         private System.Windows.Forms.Panel pnlContainer;
-        private System.Windows.Forms.Panel pnlProfileButtons;
-        private System.Windows.Forms.Label lblProfile;
-        private System.Windows.Forms.Label lblLogout;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

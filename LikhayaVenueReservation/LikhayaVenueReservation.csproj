@@ -126,6 +126,12 @@
     <Compile Include="UCUserFormPendingVerificationRejected.Designer.cs">
       <DependentUpon>UCUserFormPendingVerificationRejected.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCViewLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCViewLogs.Designer.cs">
+      <DependentUpon>UCViewLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormPendingVerification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationRejected.resx">
       <DependentUpon>UCUserFormPendingVerificationRejected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCViewLogs.resx">
+      <DependentUpon>UCViewLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormPendingVerification.resx">
       <DependentUpon>UserFormPendingVerification.cs</DependentUpon>

@@ -36,6 +36,7 @@
             // btnAdmin
             // 
             this.btnAdmin.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
@@ -50,6 +51,7 @@
             // btnStaff
             // 
             this.btnStaff.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStaff.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaff.ForeColor = System.Drawing.Color.White;

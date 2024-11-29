@@ -25,29 +25,20 @@ namespace LikhayaVenueReservation
         }
         private void btnProfileButton_Click(object sender, EventArgs e)
         {
-            pnlProfileButtons.Visible = !pnlProfileButtons.Visible;
 
-            if(pnlProfileButtons.Visible == true)
-            {
-                btnProfileButton.BackColor = Color.White;
-                pnlProfileButtons.BringToFront();
-            }
-            else
-            {
-                btnProfileButton.BackColor = Color.Transparent;
-            }
         }
 
-        private void lblProfile_Click(object sender, EventArgs e)
+        private void btnAddAccounts_Click(object sender, EventArgs e)
         {
-
+            UCAdminAddStaffAdmin addAcc = new UCAdminAddStaffAdmin();
+            addUserControls(addAcc);
         }
 
-        private void lblLogout_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             DialogResult prompt = MessageBox.Show("Are you sure you want to log-out?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(prompt == DialogResult.Yes)
+            if (prompt == DialogResult.Yes)
             {
                 Session.sessionUserID = 0;
                 Session.sessionUsername = null;
@@ -59,10 +50,15 @@ namespace LikhayaVenueReservation
             }
         }
 
-        private void btnAddAccounts_Click(object sender, EventArgs e)
+        private void btnViewAccount_Click(object sender, EventArgs e)
         {
-            UCAdminAddStaffAdmin addAcc = new UCAdminAddStaffAdmin();
-            addUserControls(addAcc);
+
+        }
+
+        private void btnViewLogs_Click(object sender, EventArgs e)
+        {
+            UCViewLogs log = new UCViewLogs();
+            addUserControls(log);
         }
     }
 }

@@ -34,7 +34,9 @@ namespace LikhayaVenueReservation
             if (admin)
             {
                 btnAdmin.BackColor = Color.White;
+                btnAdmin.ForeColor = Color.SteelBlue;
                 btnStaff.BackColor = Color.SteelBlue;
+                btnStaff.ForeColor = Color.White;
             }
 
             UCAdminAddAdmin adminForm = new UCAdminAddAdmin();
@@ -49,7 +51,9 @@ namespace LikhayaVenueReservation
             if (staff)
             {
                 btnAdmin.BackColor = Color.SteelBlue;
+                btnAdmin.ForeColor = Color.White;
                 btnStaff.BackColor = Color.White;
+                btnStaff.ForeColor = Color.SteelBlue;
             }
 
             UCAdminAddStaff staffForm = new UCAdminAddStaff();
