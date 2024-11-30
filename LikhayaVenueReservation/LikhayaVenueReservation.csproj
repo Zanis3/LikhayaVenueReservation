@@ -132,6 +132,42 @@
     <Compile Include="UCAdminViewAccountsDetails.Designer.cs">
       <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCStaffReservations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStaffReservations.Designer.cs">
+      <DependentUpon>UCStaffReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStaffUserEditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStaffUserEditProfile.Designer.cs">
+      <DependentUpon>UCStaffUserEditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStaffVenues.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStaffVenues.Designer.cs">
+      <DependentUpon>UCStaffVenues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStaffVenuesAddVenue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStaffVenuesAddVenue.Designer.cs">
+      <DependentUpon>UCStaffVenuesAddVenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStaffVenuesReadUpdateDeleteVenue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCStaffVenuesReadUpdateDeleteVenue.Designer.cs">
+      <DependentUpon>UCStaffVenuesReadUpdateDeleteVenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCStaffVenuesSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCStaffVenuesSettings.Designer.cs">
+      <DependentUpon>UCStaffVenuesSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserFormPendingVerificationPending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +237,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewAccountsDetails.resx">
       <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffReservations.resx">
+      <DependentUpon>UCStaffReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffUserEditProfile.resx">
+      <DependentUpon>UCStaffUserEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffVenues.resx">
+      <DependentUpon>UCStaffVenues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffVenuesAddVenue.resx">
+      <DependentUpon>UCStaffVenuesAddVenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffVenuesReadUpdateDeleteVenue.resx">
+      <DependentUpon>UCStaffVenuesReadUpdateDeleteVenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffVenuesSettings.resx">
+      <DependentUpon>UCStaffVenuesSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationPending.resx">
       <DependentUpon>UCUserFormPendingVerificationPending.cs</DependentUpon>

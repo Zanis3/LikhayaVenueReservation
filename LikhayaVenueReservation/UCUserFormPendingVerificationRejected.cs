@@ -54,7 +54,7 @@ namespace LikhayaVenueReservation
             try
             {
                 conn.Open();
-                SqlCommand getReason = new SqlCommand("SELECT * FROM [Rejection] WHERE accountID = @accountID", conn);
+                SqlCommand getReason = new SqlCommand("SELECT TOP 1 * FROM [Rejection] WHERE accountID = @accountID ORDER BY RejectionID DESC", conn);
 
                 getReason.Parameters.AddWithValue("@accountID", Session.sessionUserID);
 

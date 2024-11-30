@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,7 +93,20 @@ namespace LikhayaVenueReservation
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            loadAccountData("SELECT a.accountID, a.accountUsername, b.UserClassification, a.accountStatus FROM Account a LEFT JOIN UserClassification b ON a.accountID = b.accountID WHERE a.accountType = @accountType AND a.accountUsername LIKE @searchvalue", txtSearchBox.Text);
+            string query = @"SELECT a.accountID, a.accountUsername, b.UserClassification, a.accountStatus FROM Account a LEFT JOIN UserClassification b ON a.accountID = b.accountID WHERE a.accountType = @accountType AND (a.accountUsername LIKE @searchvalue OR b.UserClassification LIKE @searchvalue OR a.accountStatus LIKE @searchvalue)";
+
+            string searchValue = txtSearchBox.Text;
+
+            if (string.IsNullOrEmpty(searchValue))
+            {
+                searchValue = "%";
+            }
+            else
+            {
+                searchValue = "%" + searchValue + "%";
+            }
+
+            loadAccountData(query, searchValue);
         }
 
         private void rdoUser_CheckedChanged(object sender, EventArgs e)
