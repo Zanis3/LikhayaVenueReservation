@@ -16,6 +16,11 @@ namespace LikhayaVenueReservation
         private static string directory = @"C:\Users\USER\source\repos\LikhayaVenueReservation\LikhayaVenueReservation\LikhayaVenueReservation.mdf";
         public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True";
 
+        //DIRECTORY NG MDF NI ZION
+        /*
+         C:\Users\USER\source\repos\LikhayaVenueReservation\LikhayaVenueReservation\LikhayaVenueReservation.mdf
+        */
+
         //DATE
         public static string getDate()
         {

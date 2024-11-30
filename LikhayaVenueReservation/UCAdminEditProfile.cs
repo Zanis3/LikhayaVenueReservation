@@ -280,19 +280,19 @@ namespace LikhayaVenueReservation
                 conn.Open();
                 try
                 {
-                    SqlCommand findAdmins = new SqlCommand("SELECT * FROM [Account] WHERE accountType = @admin", conn);
+                    SqlCommand findAdmins = new SqlCommand("SELECT COUNT(*) FROM [Account] WHERE accountType = @admin", conn);
 
                     findAdmins.Parameters.AddWithValue("@admin", "admin");
 
-                    int admin = findAdmins.ExecuteNonQuery();
+                    int adminCount = (int)findAdmins.ExecuteScalar();
 
-                    if (admin < 2)
+                    if (adminCount < 2)
                     {
                         Extra.showNoticeMessage("You cannot delete your account because there is only one admin account");
                     }
                     else
                     {
-                        SqlCommand deleteAccount = new SqlCommand("SELECT * FROM [Account] WHERE accountUsername = @username", conn);
+                        SqlCommand deleteAccount = new SqlCommand("DELETE FROM [Account] WHERE accountUsername = @username", conn);
 
                         deleteAccount.Parameters.AddWithValue("@username", Session.sessionUsername);
 
@@ -317,6 +317,10 @@ namespace LikhayaVenueReservation
                                     parentForm.Hide();
                                 }
                             }
+                        }
+                        else
+                        {
+                            Extra.showNoticeMessage("Account deletion failed. Please try again.");
                         }
                     }
                 }

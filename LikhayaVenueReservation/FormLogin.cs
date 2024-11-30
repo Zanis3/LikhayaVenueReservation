@@ -71,6 +71,7 @@ namespace LikhayaVenueReservation
                         string userType = reader["accountType"].ToString();
                         int userID = Convert.ToInt16(reader["accountID"]);
                         bool passwordVerifier = Password.hashVerifier(hashPass, password);
+                        userVerifyStatus = reader["accountStatus"].ToString();
 
                         //PAG MALI PASSWORD
                         if (passwordVerifier == false)

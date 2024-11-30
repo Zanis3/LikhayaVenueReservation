@@ -126,6 +126,12 @@
     <Compile Include="UCAdminViewAccounts.Designer.cs">
       <DependentUpon>UCAdminViewAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminViewAccountsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCAdminViewAccountsDetails.Designer.cs">
+      <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserFormPendingVerificationPending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewAccounts.resx">
       <DependentUpon>UCAdminViewAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminViewAccountsDetails.resx">
+      <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationPending.resx">
       <DependentUpon>UCUserFormPendingVerificationPending.cs</DependentUpon>
