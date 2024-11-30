@@ -32,18 +32,16 @@ namespace LikhayaVenueReservation
                 if (viewAccounts == null || viewAccounts.IsDisposed)
                 {
                     viewAccounts = new UCAdminViewAccountsDetails(accountID);
-                    viewAccounts.ShowDialog();
-                    viewAccounts.BringToFront();
-                    viewAccounts.Focus();
                 }
                 else
                 {
                     viewAccounts.Close();
                     viewAccounts = new UCAdminViewAccountsDetails(accountID);
-                    viewAccounts.ShowDialog();
-                    viewAccounts.BringToFront();
-                    viewAccounts.Focus();
                 }
+
+                viewAccounts.ShowDialog();
+                viewAccounts.BringToFront();
+                viewAccounts.Focus();
             }
         }
 

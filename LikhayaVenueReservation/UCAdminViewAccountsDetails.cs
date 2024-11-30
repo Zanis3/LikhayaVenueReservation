@@ -200,6 +200,7 @@ namespace LikhayaVenueReservation
                 lblReasonRejection.Visible = true;
                 txtReason.Visible = true;
                 btnRejectAccount.Text = "Confirm Rejection";
+                btnVerifyAccount.Enabled = false;
             }
             else if(btnRejectAccount.Text == "Confirm Rejection")
             {
@@ -217,6 +218,16 @@ namespace LikhayaVenueReservation
                         try
                         {
                             conn.Open();
+
+                            //GET REASON
+                            SqlCommand sendReason = new SqlCommand("INSERT INTO [Rejection] (accountID, ReasonDesc) VALUES (@accountID,  @reasondesc)", conn);
+
+                            sendReason.Parameters.AddWithValue("@accountID",accountID);
+                            sendReason.Parameters.AddWithValue("@reasondesc", txtReason.Text);
+
+                            sendReason.ExecuteNonQuery();
+
+                            //UPDATE ACCOUNT STATUS TO REJECTED
                             SqlCommand rejectAccount = new SqlCommand("UPDATE [Account] SET accountStatus = @accountStatus WHERE accountID = @accountID", conn);
 
                             rejectAccount.Parameters.AddWithValue("@accountID", accountID);
@@ -246,6 +257,13 @@ namespace LikhayaVenueReservation
                             conn.Close();
                         }
                     }
+                    else
+                    {
+                        lblReasonRejection.Visible = false;
+                        txtReason.Visible = false;
+                        btnRejectAccount.Text = "Reject";
+                        btnVerifyAccount.Enabled = true;
+                    }
                 }
             }
         }
@@ -261,7 +279,7 @@ namespace LikhayaVenueReservation
                 try
                 {
                     conn.Open();
-                    SqlCommand deleteAccount = new SqlCommand("DELETE * FROM [Account] WHERE accountID = @accountID");
+                    SqlCommand deleteAccount = new SqlCommand("DELETE FROM [Account] WHERE accountID = @accountID", conn);
 
                     deleteAccount.Parameters.AddWithValue("@accountID", accountID);
 

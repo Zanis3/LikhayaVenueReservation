@@ -16,14 +16,104 @@ namespace LikhayaVenueReservation
         public FormRegister()
         {
             InitializeComponent();
+            loadRejectedData();
+        }
+
+        private void loadRejectedData()
+        {
+            if(!string.IsNullOrEmpty(Session.sessionUsername))
+            {
+                SqlConnection conn = new SqlConnection(Extra.connectionString);
+
+                try
+                {
+                    conn.Open();
+
+                    //USER CLASSIFICATION
+                    SqlCommand loadClassification = new SqlCommand("SELECT * FROM UserClassification WHERE accountID = @accountid", conn);
+
+                    loadClassification.Parameters.AddWithValue("@accountid", Session.sessionUserID);
+
+                    SqlDataReader readerClassification = loadClassification.ExecuteReader();
+
+                    if (readerClassification.HasRows)
+                    {
+                        while (readerClassification.Read())
+                        {
+                            rdoUserClassStudent.Enabled = false;
+                            rdoUserClassOutsider.Enabled = false;
+
+                            if (readerClassification["UserClassification"].ToString() == "student")
+                            {
+                                rdoUserClassStudent.Checked = true;
+                            }
+                            else
+                            {
+                                rdoUserClassOutsider.Checked = true;
+                            }
+                        }
+                        readerClassification.Close();
+                    }
+
+                    //UPDATE OTHER DATA
+                    SqlCommand loadData = new SqlCommand("SELECT * FROM [AccountDetails] WHERE @accountID = accountID", conn);
+
+                    loadData.Parameters.AddWithValue("@accountID", Session.sessionUserID);
+
+                    SqlDataReader reader = loadData.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            txtFirstName.Text = reader["FirstName"].ToString();
+                            txtLastName.Text = reader["LastName"].ToString();
+                            txtMiddleName.Text = reader["MiddleName"].ToString();
+                            txtUserClassification.Text = Session.sessionUsername;
+                            txtUserClassification.Enabled = false;
+                            txtPassword.Text = Session.sessionPassword;
+
+                            txtUserGroup.Text = reader["UserGroup"].ToString();
+                            txtUserDesignation.Text = reader["UserDesignation"].ToString();
+                        }
+
+                        reader.Close();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Extra.showException(ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            DialogResult returnToLogin = MessageBox.Show("Are you sure you want to go back to the main menu? All information typed in will be lost.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult returnToLogin;
+
+            if (!string.IsNullOrEmpty(Session.sessionUsername))
+            {
+                returnToLogin = MessageBox.Show("Are you sure you want to go back to the main menu? You will automatically be logged out, and you will need to log-in again to re-register.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                returnToLogin = MessageBox.Show("Are you sure you want to go back to the main menu? All information typed in will be lost.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
 
             if (returnToLogin == DialogResult.Yes)
             {
+                if (!string.IsNullOrEmpty(Session.sessionUsername))
+                {
+                    Session.sessionPassword = null;
+                    Session.sessionUserID = 0;
+                    Session.sessionUsername = null;
+                    Session.sessionUserType = null;
+                }
+
                 FormLogin login = new FormLogin();
                 login.Show();
                 this.Hide();
@@ -192,7 +282,7 @@ namespace LikhayaVenueReservation
             }
 
             //CHECKS IF USERNAME ALREADY EXISTS
-            if (!string.IsNullOrEmpty(txtUserClassification.Text))
+            if (!string.IsNullOrEmpty(txtUserClassification.Text) && string.IsNullOrEmpty(Session.sessionUsername))
             {
                 string username = txtUserClassification.Text;
                 conn.Open();
@@ -222,7 +312,11 @@ namespace LikhayaVenueReservation
                 }
             }
 
-            if(counter == 5)
+            if (counter == 4 && !string.IsNullOrEmpty(Session.sessionUsername))
+            {
+                updatedRejectedData();
+            }
+            else if(counter == 5)
             {
                 try
                 {
@@ -291,6 +385,87 @@ namespace LikhayaVenueReservation
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void updatedRejectedData()
+        {
+            SqlConnection conn = new SqlConnection(Extra.connectionString);
+
+            try
+            {
+                conn.Open();
+                bool passMatch = false;
+
+                SqlCommand findAccount = new SqlCommand("SELECT * FROM [Account] WHERE accountID = @accountid", conn);
+
+                findAccount.Parameters.AddWithValue("@accountid", Session.sessionUserID);
+
+                SqlDataReader reader = findAccount.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        passMatch = Password.hashVerifier(reader["accountPassword"].ToString(), txtPassword.Text);
+                    }
+
+                    reader.Close();
+                }
+
+                if (passMatch == false)
+                {
+                    Extra.showWarningMessage("For Rejected Users: Please use the student id/username and password you registered your account with in order to avoid conflicts. Thank you.");
+                }
+                else
+                {
+                    SqlCommand updateStatus = new SqlCommand("UPDATE [Account] SET accountStatus = @accountStatus WHERE accountID = @accountid", conn);
+
+                    updateStatus.Parameters.AddWithValue("@accountStatus", "pending");
+                    updateStatus.Parameters.AddWithValue("@accountid", Session.sessionUserID);
+
+                    updateStatus.ExecuteNonQuery();
+
+                    SqlCommand updateAccount = new SqlCommand("UPDATE [AccountDetails] SET LastName = @lastname, FirstName = @firstName, MiddleName = @middleName, UserGroup = @usergroup, UserDesignation = @userdesignation WHERE accountID = @accountid", conn);
+
+                    updateAccount.Parameters.AddWithValue("@lastname", txtLastName.Text);
+                    updateAccount.Parameters.AddWithValue("@firstname", txtFirstName.Text);
+                    updateAccount.Parameters.AddWithValue("@middlename", txtMiddleName.Text);
+                    updateAccount.Parameters.AddWithValue("@usergroup", txtUserGroup.Text);
+                    updateAccount.Parameters.AddWithValue("@userdesignation", txtUserDesignation.Text);
+                    updateAccount.Parameters.AddWithValue("@accountid", Session.sessionUserID);
+
+                    int successA = updateAccount.ExecuteNonQuery();
+
+                    if (successA == 1)
+                    {
+                        DialogResult result = MessageBox.Show("Re-Registration Successful. Please wait for an administrator to approve your account. You will log out automatically once you click 'OK'.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.OK)
+                        {
+                            Session.sessionPassword = null;
+                            Session.sessionUserID = 0;
+                            Session.sessionUsername = null;
+                            Session.sessionUserType = null;
+
+                            FormLogin login = new FormLogin();
+                            login.Show();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Extra.showWarningMessage("Something has gone wrong. Please try again.");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Extra.showException(ex);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

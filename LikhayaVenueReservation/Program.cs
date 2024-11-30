@@ -83,6 +83,7 @@ namespace LikhayaVenueReservation
     {
         public static int sessionUserID { get; set; }
         public static string sessionUsername { get; set; }
+        public static string sessionPassword { get; set; }
         public static string sessionUserType { get; set; }
     }
 

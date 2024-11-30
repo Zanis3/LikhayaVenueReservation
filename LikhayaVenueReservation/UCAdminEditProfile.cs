@@ -22,35 +22,8 @@ namespace LikhayaVenueReservation
 
         private void loadInfo()
         {
-            SqlConnection conn = new SqlConnection(Extra.connectionString);
-
-            try
-            {
-                conn.Open();
-
-                SqlCommand findUsername = new SqlCommand("SELECT * FROM [Account] WHERE accountUsername = @username", conn);
-
-                findUsername.Parameters.AddWithValue("@username", Session.sessionUsername);
-
-                SqlDataReader reader = findUsername.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        txtUsername.Text = reader["accountUsername"].ToString();
-                    }
-                    
-                }
-            }
-            catch(Exception ex)
-            {
-                Extra.showException(ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            txtUsername.Text = Session.sessionUsername;
+            txtPassword.Text = Session.sessionPassword;
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)
