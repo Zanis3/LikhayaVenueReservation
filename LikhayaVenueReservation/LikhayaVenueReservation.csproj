@@ -114,6 +114,18 @@
     <Compile Include="UCAdminAddStaffAdmin.Designer.cs">
       <DependentUpon>UCAdminAddStaffAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminEditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminEditProfile.Designer.cs">
+      <DependentUpon>UCAdminEditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminViewAccounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminViewAccounts.Designer.cs">
+      <DependentUpon>UCAdminViewAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserFormPendingVerificationPending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminAddStaffAdmin.resx">
       <DependentUpon>UCAdminAddStaffAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminEditProfile.resx">
+      <DependentUpon>UCAdminEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminViewAccounts.resx">
+      <DependentUpon>UCAdminViewAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationPending.resx">
       <DependentUpon>UCUserFormPendingVerificationPending.cs</DependentUpon>

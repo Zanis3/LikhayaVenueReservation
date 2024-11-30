@@ -25,7 +25,8 @@ namespace LikhayaVenueReservation
         }
         private void btnProfileButton_Click(object sender, EventArgs e)
         {
-
+            UCAdminEditProfile profile = new UCAdminEditProfile();
+            addUserControls(profile);
         }
 
         private void btnAddAccounts_Click(object sender, EventArgs e)
@@ -52,7 +53,8 @@ namespace LikhayaVenueReservation
 
         private void btnViewAccount_Click(object sender, EventArgs e)
         {
-
+            UCAdminViewAccounts viewAccs = new UCAdminViewAccounts();
+            addUserControls(viewAccs);
         }
 
         private void btnViewLogs_Click(object sender, EventArgs e)

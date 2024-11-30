@@ -14,7 +14,7 @@ namespace LikhayaVenueReservation
     {
         //SQL CONNECTION STRING
         private static string directory = @"C:\Users\USER\source\repos\LikhayaVenueReservation\LikhayaVenueReservation\LikhayaVenueReservation.mdf";
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=True;Connect Timeout=30";
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + directory + ";Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True";
 
         //DATE
         public static string getDate()
