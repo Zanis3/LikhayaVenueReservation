@@ -149,7 +149,7 @@ namespace LikhayaVenueReservation
                     conn.Open();
                     getVenue(conn);
 
-                    SqlCommand findOverlap = new SqlCommand("SELECT COUNT(*) FROM [Reservation] WHERE VenueID = @venueID AND ((ReservationStartTime < @endtime AND ReservationEndTime > @starttime)) AND ReservationDate = @reservationdate", conn);
+                    SqlCommand findOverlap = new SqlCommand("SELECT COUNT(*) FROM [Reservation] WHERE VenueID = @venueID AND ((ReservationStartTime < @endtime AND ReservationEndTime > @starttime)) AND ReservationDate = @reservationdate AND ReservationStatus != @reservationstatus", conn);
 
                     DateTime reservationDate = DateTime.Parse(cboReservationDate.Text);
                     TimeSpan reservationStartTime = TimeSpan.Parse(cboReservationStartTime.Text);
@@ -159,6 +159,7 @@ namespace LikhayaVenueReservation
                     findOverlap.Parameters.AddWithValue("@endtime", reservationEndTime);
                     findOverlap.Parameters.AddWithValue("@starttime", reservationStartTime);
                     findOverlap.Parameters.AddWithValue("@reservationdate", reservationDate);
+                    findOverlap.Parameters.AddWithValue("@reservationstatus", "rejected");
 
                     int count = (int)findOverlap.ExecuteScalar();
 
