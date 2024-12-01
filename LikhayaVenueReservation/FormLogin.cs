@@ -48,6 +48,7 @@ namespace LikhayaVenueReservation
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            updateReservation();
             SqlConnection conn = new SqlConnection(Extra.connectionString);
 
             //IF USERNAME IS NOT EMPTY
@@ -140,6 +141,32 @@ namespace LikhayaVenueReservation
             else
             {
                 Extra.showWarningMessage("Please fill in all fields to continue.");
+            }
+        }
+
+        private void updateReservation()
+        {
+            DateTime dateNow = DateTime.Now;
+            SqlConnection conn = new SqlConnection(Extra.connectionString);
+
+            try
+            {
+                conn.Open();
+
+                SqlCommand updateReservation = new SqlCommand("UPDATE [Reservation] SET ReservationStatus = @status WHERE ReservationDate <= @datetimenow", conn);
+
+                updateReservation.Parameters.AddWithValue("@status", "completed");
+                updateReservation.Parameters.AddWithValue("@datetimenow", dateNow);
+
+                updateReservation.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Extra.showException(ex);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

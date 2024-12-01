@@ -132,6 +132,12 @@
     <Compile Include="UCAdminViewAccountsDetails.Designer.cs">
       <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCStaffReservationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCStaffReservationDetails.Designer.cs">
+      <DependentUpon>UCStaffReservationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCStaffReservations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewAccountsDetails.resx">
       <DependentUpon>UCAdminViewAccountsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCStaffReservationDetails.resx">
+      <DependentUpon>UCStaffReservationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCStaffReservations.resx">
       <DependentUpon>UCStaffReservations.cs</DependentUpon>
