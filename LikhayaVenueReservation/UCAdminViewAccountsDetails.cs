@@ -287,7 +287,6 @@ namespace LikhayaVenueReservation
 
                     if (success > 0)
                     {
-                        Extra.showSucessMessage("Account status updated successfully.");
                         DialogResult resulttwo = MessageBox.Show("Account successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         if(resulttwo == DialogResult.OK)
@@ -297,7 +296,7 @@ namespace LikhayaVenueReservation
                     }
                     else
                     {
-                        Extra.showWarningMessage("Account update failed. Please check the account ID.");
+                        Extra.showWarningMessage("Account deletion failed. Please check the account ID.");
                     }
                 }
                 catch (Exception ex)

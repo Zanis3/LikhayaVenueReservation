@@ -30,7 +30,8 @@ namespace LikhayaVenueReservation
             }
             else if(settings == "update")
             {
-
+                UCStaffVenuesReadUpdateDeleteVenue updateVenue = new UCStaffVenuesReadUpdateDeleteVenue(id);
+                addUserControls(updateVenue);
             }
         }
 
