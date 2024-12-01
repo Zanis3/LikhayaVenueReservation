@@ -85,8 +85,6 @@ namespace LikhayaVenueReservation
                             Session.sessionUserID = userID;
                             Session.sessionPassword = txtPassword.Text;
 
-                            Extra.log($"{userType} '{txtID.Text}' logged into their account.");
-
                             if (userType == "user")
                             {
 

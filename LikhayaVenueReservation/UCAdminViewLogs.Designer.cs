@@ -1,6 +1,6 @@
 ﻿namespace LikhayaVenueReservation
 {
-    partial class UCViewLogs
+    partial class UCAdminViewLogs
     {
         /// <summary> 
         /// Required designer variable.

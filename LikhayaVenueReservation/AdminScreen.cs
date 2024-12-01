@@ -59,7 +59,7 @@ namespace LikhayaVenueReservation
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
-            UCViewLogs log = new UCViewLogs();
+            UCAdminViewLogs log = new UCAdminViewLogs();
             addUserControls(log);
         }
     }

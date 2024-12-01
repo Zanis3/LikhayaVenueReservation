@@ -168,6 +168,12 @@
     <Compile Include="UCStaffVenuesSettings.Designer.cs">
       <DependentUpon>UCStaffVenuesSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCUserAddReservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCUserAddReservation.Designer.cs">
+      <DependentUpon>UCUserAddReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserFormPendingVerificationPending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,11 +186,29 @@
     <Compile Include="UCUserFormPendingVerificationRejected.Designer.cs">
       <DependentUpon>UCUserFormPendingVerificationRejected.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCViewLogs.cs">
+    <Compile Include="UCUserReservationReadUpdateDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCViewLogs.Designer.cs">
-      <DependentUpon>UCViewLogs.cs</DependentUpon>
+    <Compile Include="UCUserReservationReadUpdateDelete.Designer.cs">
+      <DependentUpon>UCUserReservationReadUpdateDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCUserReservations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCUserReservations.Designer.cs">
+      <DependentUpon>UCUserReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCUserReservationSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCUserReservationSettings.Designer.cs">
+      <DependentUpon>UCUserReservationSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminViewLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminViewLogs.Designer.cs">
+      <DependentUpon>UCAdminViewLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="UserFormPendingVerification.cs">
       <SubType>Form</SubType>
@@ -256,14 +280,26 @@
     <EmbeddedResource Include="UCStaffVenuesSettings.resx">
       <DependentUpon>UCStaffVenuesSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCUserAddReservation.resx">
+      <DependentUpon>UCUserAddReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationPending.resx">
       <DependentUpon>UCUserFormPendingVerificationPending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserFormPendingVerificationRejected.resx">
       <DependentUpon>UCUserFormPendingVerificationRejected.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCViewLogs.resx">
-      <DependentUpon>UCViewLogs.cs</DependentUpon>
+    <EmbeddedResource Include="UCUserReservationReadUpdateDelete.resx">
+      <DependentUpon>UCUserReservationReadUpdateDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUserReservations.resx">
+      <DependentUpon>UCUserReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUserReservationSettings.resx">
+      <DependentUpon>UCUserReservationSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminViewLogs.resx">
+      <DependentUpon>UCAdminViewLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormPendingVerification.resx">
       <DependentUpon>UserFormPendingVerification.cs</DependentUpon>

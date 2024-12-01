@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace LikhayaVenueReservation
 {
-    public partial class UCViewLogs : UserControl
+    public partial class UCAdminViewLogs : UserControl
     {
-        public UCViewLogs()
+        public UCAdminViewLogs()
         {
             InitializeComponent();
             tblViewLogs.AutoGenerateColumns = true;
